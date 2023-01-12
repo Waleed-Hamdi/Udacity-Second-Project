@@ -58,3 +58,4 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 1- you should create your .env and it should contain the data which i will list it to you in **env-example.md**
 
+2- you should create file => database.json in root directory and it should contain the data about your data base you can see example of database.json in **database-json-example.me**
