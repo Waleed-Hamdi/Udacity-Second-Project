@@ -87,8 +87,7 @@ Before submitting your project, spin it up and test each endpoint. If each one r
     tsc-watch,
     typescript  
 
-
-
+*****************************************************************************************************
 
 ## 1- type in terminal   => # db-migrate up
 
@@ -96,7 +95,7 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 ## to start this project run => # npm run start
 
-**************************
+********************************************************************************************************
 
 # products endpoint
 
@@ -109,7 +108,7 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 ## create product example post 'localhost:3030/create_product'
    you should send all product info in req.body and token 
 
-**************************
+********************************************************************************************************
 
 # user endpoint
 
@@ -122,7 +121,7 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 ## show specific user example get 'localhost:3030/user/show' 
    send in request body id  and token
 
-**************************
+********************************************************************************************************
 
 # orders endpoint
 
@@ -132,3 +131,29 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 ## show specific order example get 'localhost:3030/order/:id'
    replace :id with order id number you want to show 
    send in request body token 
+
+**********************************************************************************************************
+
+# DataBase Schema 
+  we have 3 tables => users , products , orders 
+
+## users table 
+   we have 4 columns in users table 
+   id => serial primary key
+   firstname => varchar
+   lastname => varchar
+   password => varchar
+
+## products table 
+   we have 3 columns in products table 
+   id => serial primary key
+   name => varchar
+   price => integer
+   
+## orders table 
+   we have 5 columns in users table 
+   id => serial primary key
+   product_id => bigint REFERENCES products(id)
+   quantity => integer
+   user_id => bigint REFERENCES users(id)
+   order_status => varchar
