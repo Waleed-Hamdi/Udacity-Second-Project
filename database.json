@@ -2,11 +2,11 @@
 
     "dev": {
         "driver": "pg",
-        "user": "postgres",
-        "password": "19598",
-        "host": "127.0.0.1",
-        "database": "store_front",
-        "port": "5432"
+        "user": {"ENV": "POSTGRES_USER"},
+        "password": {"ENV": "POSTGRES_PASSWORD"},
+        "host": {"ENV": "POSTGRES_HOST"},
+        "database": {"ENV": "POSTGRES_DB"},
+        "port": {"ENV": "POSTGRES_PORT"}
      }
 
 }
