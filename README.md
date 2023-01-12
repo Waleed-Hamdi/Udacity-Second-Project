@@ -60,6 +60,36 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 2- you should create file => database.json in root directory and it should contain the data about your data base you can see example of database.json in **database-json-example.me** -->
 
+# the first step is make sure you have all this packages in package.json
+  ## in dependencies
+    bcrypt,
+    body-parser,
+    db-migrate,
+    db-migrate-pg,
+    dotenv,
+    express,
+    jsonwebtoken,
+    pg,
+    ts-node
+
+  ## in devdependencies
+   @types/bcrypt,
+    @types/express,
+    @types/jasmine,
+    @types/jsonwebtoken,
+    @types/node,
+    @types/pg,
+    @types/supertest,
+    jasmine,
+    jasmine-spec-reporter,
+    nodemon,
+    supertest,
+    tsc-watch,
+    typescript  
+
+
+
+
 ## 1- type in terminal   => # db-migrate up
 
 ## 2-  to build and test this project run   => # npm run test
