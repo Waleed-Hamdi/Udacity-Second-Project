@@ -11,8 +11,8 @@ const secret = process.env.TOKEN_SECRET;
 
 const userRoutr = (app:express.Application)=>{
     app.get('/users',index);
-    app.post('/users/create',create);
-    app.get('/users/show',show);
+    app.post('/user/create',create);
+    app.get('/user/show',show);
 }
 
 

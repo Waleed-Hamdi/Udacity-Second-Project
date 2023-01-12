@@ -1,6 +1,6 @@
 # Storefront Backend Project
 
-## Getting Started
+<!-- ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
 
@@ -58,4 +58,47 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 1- you should create your .env and it should contain the data which i will list it to you in **env-example.md**
 
-2- you should create file => database.json in root directory and it should contain the data about your data base you can see example of database.json in **database-json-example.me**
+2- you should create file => database.json in root directory and it should contain the data about your data base you can see example of database.json in **database-json-example.me** -->
+
+## 1- type in terminal   => # db-migrate up
+
+## 2-  to build and test this project run   => # npm run test
+
+## to start this project run => # npm run start
+
+**************************
+
+# products endpoint
+
+## show all products example get 'localhost:3030/products'
+
+## show specific product example get 'localhost:3030/product/:id'
+   replace :id with product id number you want to show
+
+
+## create product example post 'localhost:3030/create_product'
+   you should send all product info in req.body and token 
+
+**************************
+
+# user endpoint
+
+## show all users  example get 'localhost:3030/users' 
+   send token in request body
+
+## create new user example post 'localhost:3030/user/create' 
+   send in request body  firstName , lastName ,password
+
+## show specific user example get 'localhost:3030/user/show' 
+   send in request body id  and token
+
+**************************
+
+# orders endpoint
+
+## create order example post 'localhost:3030/order' 
+   send in request body => product_id , quantity , user_id , order_status , token
+
+## show specific order example get 'localhost:3030/order/:id'
+   replace :id with order id number you want to show 
+   send in request body token 
