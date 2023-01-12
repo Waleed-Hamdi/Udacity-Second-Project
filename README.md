@@ -1,6 +1,6 @@
 # Storefront Backend Project
 
-<!-- ## Getting Started
+ ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
 
@@ -54,11 +54,12 @@ Before submitting, make sure that your project is complete with a `README.md`. Y
 Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
 
 
+***********************************************************************************************************
+
 # Steps you should folow it to start this project
 
-1- you should create your .env and it should contain the data which i will list it to you in **env-example.md**
+  you should create your .env and it should contain the data which i will list it to you in **env-example.md**
 
-2- you should create file => database.json in root directory and it should contain the data about your data base you can see example of database.json in **database-json-example.me** -->
 
 # the first step is make sure you have all this packages in package.json
   ## in dependencies
