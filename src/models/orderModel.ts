@@ -28,7 +28,7 @@ export class ordermodel {
     async show(id: number): Promise<order[]> {
         try {
             const conn = await client.connect();
-            const sql = 'select order_id,user_id ,product_id ,quantity,order_status from order_products INNER JOIN orders on orders.id=order_products.order_id where order_id=($1)';
+            const sql = 'select order_id,user_id ,product_id ,quantity,order_status from order_products INNER JOIN orders on orders.id=order_products.order_id where user_id=($1)';
             const result = await conn.query(sql, [id]);
             conn.release();
             return result.rows;

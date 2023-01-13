@@ -1,4 +1,4 @@
-# Storefront Backend Project
+//
 
  ## Getting Started
 
@@ -63,6 +63,9 @@ Before submitting your project, spin it up and test each endpoint. If each one r
   this server is running on port 3030
 
   and database port 5432
+
+
+  you  have to download node_modules
 
 
 # the first step is make sure you have all this packages in package.json
@@ -131,16 +134,35 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 # orders endpoint
 
 ## create order example post 'localhost:3030/order' 
-   send in request body => product_id , quantity , user_id , order_status , token
+   send in request body   examlpe => {"user_id":2,"order_status":"active",
+   "token":"asdasdasdasdasdas"}
 
 ## show specific order example get 'localhost:3030/order/:id'
    replace :id with order id number you want to show 
    send in request body token 
+   example =>{
+      "token":" sadasdsadasd"
+   }
+
+## show all orders get 'localhost:3030/orders'
+   and send token in body-request
+    example =>{
+      "token":" sadasdsadasd"
+   }
+
+
+## add products to order => post 'localhost:3030/orders/:id/products'
+   and send token , product_id and quantity in body-request
+    example =>{
+         "productId":3,
+         "quantity":6,
+         "token": "asdasa"
+   }
 
 **********************************************************************************************************
 
 # DataBase Schema 
-  we have 3 tables => users , products , orders 
+  we have 4 tables => users , products , orders , order_products 
 
 ## users table 
    we have 4 columns in users table 
@@ -156,9 +178,14 @@ Before submitting your project, spin it up and test each endpoint. If each one r
    price => integer
    
 ## orders table 
-   we have 5 columns in users table 
+   we have 3 columns in users table 
    id => serial primary key
-   product_id => bigint REFERENCES products(id)
-   quantity => integer
    user_id => bigint REFERENCES users(id)
    order_status => varchar
+
+## order_products table 
+   we have 3 columns in users table 
+   id => serial primary key
+   order_id => bigint REFERENCES orders(id)
+   product_id => bigint REFERENCES product(id)
+   quantity => integer
