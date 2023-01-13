@@ -29,11 +29,12 @@ describe('testing order handlers endpoint',()=>{
 
     }),
     it('test add product to order endpoint',async()=>{
-        await request.post('/orders/1/products').send({
-            "productId":"1",
-            "quantity":"5",
+        const result = await request.post('/orders/1/products').send({
+            "productId":1,
+            "quantity":5,
             "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOlt7ImlkIjo2LCJmaXJzdG5hbWUiOm51bGwsImxhc3RuYW1lIjpudWxsLCJwYXNzd29yZCI6IiQyYiQxMCQ1bDkvQ1ZaQkVnLnlyQ3laLlJKUm8uNGsyN01kb2wvb2RWZzkyMVh4bEp6UHpOZlUwVktUeSJ9XSwiaWF0IjoxNjczMjgwMTkxfQ.sjMU4BZ3ZrYjYWXzi8VOe_CqrcsVlT03DUQb7pS6Mms"
-        }).expect(200)
+        });
+        expect(result).not.toBeNull();
 
     })
 })

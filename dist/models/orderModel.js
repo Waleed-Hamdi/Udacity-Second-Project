@@ -60,16 +60,11 @@ class ordermodel {
     addProduct(quantity, orderId, productId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log(quantity);
-                console.log(orderId);
-                console.log(productId);
-                const sql = 'INSERT INTO order_products (quantity, order_id, product_id) VALUES($1, $2, $3) RETURNING *';
-                //@ts-ignore
+                const sql = 'INSERT INTO order_products (quantity, order_id, product_id) VALUES ($1, $2, $3) RETURNING *';
                 const conn = yield database_1.default.connect();
                 const result = yield conn.query(sql, [quantity, orderId, productId]);
                 const order = result.rows[0];
                 conn.release();
-                console.log(order);
                 return order;
             }
             catch (err) {

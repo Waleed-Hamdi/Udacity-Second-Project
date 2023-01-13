@@ -18,7 +18,6 @@ const ord: order = {
 
 describe('Test orders modle  methods', () => {
 
-
     it('test create order method', async () => {
         const response = await store.create(ord);
         expect(response).not.toBe([]);

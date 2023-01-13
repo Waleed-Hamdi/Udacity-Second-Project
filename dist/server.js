@@ -12,8 +12,6 @@ const config_1 = __importDefault(require("./config"));
 const app = (0, express_1.default)();
 const port = config_1.default.port;
 const address = `0.0.0.0:${port}`;
-const h = { "ENV": "POSTGRES_USER" };
-console.log(h);
 app.use(body_parser_1.default.json());
 app.get('/', function (req, res) {
     res.status(200).send('Hello World!');

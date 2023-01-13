@@ -9,8 +9,7 @@ import config from './config';
 const app: express.Application = express();
 const port = config.port;
 const address: string = `0.0.0.0:${port}`;
-const h = {"ENV": "POSTGRES_USER"};
-console.log(h);
+
 app.use(bodyParser.json());
 
 app.get('/', function (req: Request, res: Response) {

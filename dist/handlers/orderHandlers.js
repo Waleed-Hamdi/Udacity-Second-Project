@@ -64,10 +64,9 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const addProduct = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const orderId = _req.params.id;
-    const productId = _req.body.productId;
+    const orderId = parseInt(_req.params.id);
+    const productId = parseInt(_req.body.productId);
     const quantity = parseInt(_req.body.quantity);
-    console.log(quantity);
     try {
         if (jsonwebtoken_1.default.verify(_req.body.token, secret)) {
             const addedProduct = yield store.addProduct(quantity, orderId, productId);

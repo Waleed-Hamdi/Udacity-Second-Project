@@ -63,10 +63,11 @@ const create = async (req: Request, res: Response) => {
 }
 
 const addProduct = async (_req: Request, res: Response) => {
-    const orderId: string = _req.params.id;
-    const productId: string = _req.body.productId;
+    const orderId: number = parseInt(_req.params.id);
+    
+    const productId: number = parseInt(_req.body.productId);
     const quantity: number = parseInt(_req.body.quantity);
-     console.log(quantity);
+   
     try {
         if (jwt.verify(_req.body.token, secret as string)) {
             const addedProduct = await store.addProduct(quantity, orderId, productId)
