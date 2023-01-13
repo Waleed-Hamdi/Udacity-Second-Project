@@ -58,7 +58,11 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 
 # Steps you should folow it to start this project
 
-  you should create your .env and it should contain the data which i will list it to you in **env-example.md**
+# you should update .env with your data  
+  
+  this server is running on port 3030
+
+  and database port 5432
 
 
 # the first step is make sure you have all this packages in package.json
