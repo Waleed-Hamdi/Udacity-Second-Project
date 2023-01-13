@@ -5,8 +5,8 @@ const store = new ordermodel();
 
 const ord: order = {
     id: 0,
-    product_id: 1,
-    quantity: 5,
+    // product_id: 1,
+    // quantity: 5,
     user_id: 1,
     order_status: "active"
 }

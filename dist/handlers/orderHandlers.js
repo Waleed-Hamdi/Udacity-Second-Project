@@ -20,14 +20,27 @@ const secret = process.env.TOKEN_SECRET;
 const store = new orderModel_1.ordermodel();
 const orderroute = (app) => {
     app.get('/order/:id', show);
+    app.get('/orders', index);
     app.post('/order', create);
+    app.post('/orders/:id/products', addProduct);
 };
 const show = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (jsonwebtoken_1.default.verify(req.body.token, secret)) {
             const id = parseInt(req.params.id);
             const result = yield store.show(id);
-            res.json(result);
+            res.status(200).json(result);
+        }
+    }
+    catch (err) {
+        res.json('you have to be sure you pass token and order id  to me in request body ');
+    }
+});
+const index = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        if (jsonwebtoken_1.default.verify(req.body.token, secret)) {
+            const result = yield store.index();
+            res.status(200).json(result);
         }
     }
     catch (err) {
@@ -39,8 +52,6 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (jsonwebtoken_1.default.verify(req.body.token, secret)) {
             const ord = {
                 id: 0,
-                product_id: req.body.product_id,
-                quantity: req.body.quantity,
                 user_id: req.body.user_id,
                 order_status: req.body.order_status
             };
@@ -50,6 +61,22 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (err) {
         res.json('sorry you are not authorized');
+    }
+});
+const addProduct = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const orderId = _req.params.id;
+    const productId = _req.body.productId;
+    const quantity = parseInt(_req.body.quantity);
+    console.log(quantity);
+    try {
+        if (jsonwebtoken_1.default.verify(_req.body.token, secret)) {
+            const addedProduct = yield store.addProduct(quantity, orderId, productId);
+            res.status(200).json(addedProduct);
+        }
+    }
+    catch (err) {
+        res.status(400);
+        res.json(err);
     }
 });
 exports.default = orderroute;

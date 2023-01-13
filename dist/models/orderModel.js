@@ -15,11 +15,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ordermodel = void 0;
 const database_1 = __importDefault(require("../database"));
 class ordermodel {
+    index() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const conn = yield database_1.default.connect();
+                const sql = 'select order_id,user_id ,product_id ,quantity,order_status from order_products INNER JOIN orders on orders.id=order_products.order_id';
+                const result = yield conn.query(sql);
+                conn.release();
+                return result.rows;
+            }
+            catch (err) {
+                throw new Error('it is Error on getting specific order');
+            }
+        });
+    }
     show(id) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const conn = yield database_1.default.connect();
-                const sql = 'select * from orders where id = ($1)';
+                const sql = 'select order_id,user_id ,product_id ,quantity,order_status from order_products INNER JOIN orders on orders.id=order_products.order_id where order_id=($1)';
                 const result = yield conn.query(sql, [id]);
                 conn.release();
                 return result.rows;
@@ -33,13 +47,33 @@ class ordermodel {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const conn = yield database_1.default.connect();
-                const sql = 'insert into orders (product_id,quantity,user_id,order_status) values ($1,$2,$3,$4) returning *';
-                const result = yield conn.query(sql, [ord.product_id, ord.quantity, ord.user_id, ord.order_status]);
+                const sql = 'insert into orders (user_id,order_status) values ($1,$2) returning *';
+                const result = yield conn.query(sql, [ord.user_id, ord.order_status]);
                 conn.release();
                 return result.rows;
             }
             catch (err) {
                 throw new Error('it is Error in creating this order');
+            }
+        });
+    }
+    addProduct(quantity, orderId, productId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                console.log(quantity);
+                console.log(orderId);
+                console.log(productId);
+                const sql = 'INSERT INTO order_products (quantity, order_id, product_id) VALUES($1, $2, $3) RETURNING *';
+                //@ts-ignore
+                const conn = yield database_1.default.connect();
+                const result = yield conn.query(sql, [quantity, orderId, productId]);
+                const order = result.rows[0];
+                conn.release();
+                console.log(order);
+                return order;
+            }
+            catch (err) {
+                throw new Error(`Could not add product ${productId} to order ${orderId}: ${err}`);
             }
         });
     }

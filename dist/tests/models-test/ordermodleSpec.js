@@ -13,8 +13,8 @@ const orderModel_1 = require("../../models/orderModel");
 const store = new orderModel_1.ordermodel();
 const ord = {
     id: 0,
-    product_id: 1,
-    quantity: 5,
+    // product_id: 1,
+    // quantity: 5,
     user_id: 1,
     order_status: "active"
 };
