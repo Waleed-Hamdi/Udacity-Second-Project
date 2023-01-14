@@ -12,7 +12,7 @@ const secret = process.env.TOKEN_SECRET;
 const userRoutr = (app:express.Application)=>{
     app.get('/users',index);
     app.post('/user/create',create);
-    app.get('/user/show',show);
+    app.get('/user/show/:id',show);
 }
 
 
@@ -45,7 +45,7 @@ const create = async(req: Request,res: Response)=>{
 
 
 const show = async(req: Request,res: Response)=>{
-    const id = parseInt(req.body.id as string,10);
+    const id = parseInt(req.params.id as string,10);
     try{
 
         if(jwt.verify(req.body.token,secret as string)){

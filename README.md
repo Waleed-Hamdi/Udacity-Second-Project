@@ -126,8 +126,8 @@ Before submitting your project, spin it up and test each endpoint. If each one r
 ## create new user example post 'localhost:3030/user/create' 
    send in request body  firstName , lastName ,password
 
-## show specific user example get 'localhost:3030/user/show' 
-   send in request body id  and token
+## show specific user example get 'localhost:3030/user/show/:id' 
+   send token in request body 
 
 ********************************************************************************************************
 

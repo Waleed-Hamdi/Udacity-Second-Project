@@ -14,7 +14,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 
                                 example =>{
                                     "name":"",
-                                    "price":,
+                                    "price": number,
                                     "token":""
                                 }
 
@@ -30,11 +30,10 @@ These are the notes from a meeting with the frontend developer that describe wha
                                     "token":""
                                  }
 
-- Show [token required]=>      get 'localhost:3030/user/show'
-                                send in request body id  and token
+- Show [token required]=>      get 'localhost:3030/user/show/:id'
+                                send token in request body 
 
                                 example {
-                                    "id": 
                                     "token":""
                                  }
 
@@ -53,6 +52,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 #### Orders
 - Current Order by user (args: user id)[token required]
         =>get 'localhost:3030/order/:id'
+            **  id => user_id ** 
 
 
 - [OPTIONAL] Completed Orders by user (args: user id)[token required]
