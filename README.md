@@ -68,6 +68,16 @@ Before submitting your project, spin it up and test each endpoint. If each one r
   you  have to download node_modules
 
 
+# setup and connect to DataBase
+  1-download postgres database and set it up
+  2- open teminal and type =>> psql -U  followed by your username 
+  3- type your password
+  4- CREATE DATABASE test_store_front;
+  5- CREATE DATABASE dev_store_front;
+  6- \c test_store_front   or   \c dev_store_front  to connect to this database
+  7- \q to disconnect this database   
+
+
 # the first step is make sure you have all this packages in package.json
   ## in dependencies
     bcrypt,

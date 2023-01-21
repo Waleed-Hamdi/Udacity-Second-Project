@@ -1,5 +1,5 @@
 {
-    "defaultEnv": {"ENV":"NODE_ENV"},
+    "Def_ENV": {"ENV":"NODE_ENV"},
     "dev": {
       "driver": "pg",
       "user": {"ENV": "DB_USER"},
